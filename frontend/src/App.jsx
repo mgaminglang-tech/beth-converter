@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || '';
 const FIVE_GB = 5 * 1024 * 1024 * 1024;
 const TEN_GB = 10 * 1024 * 1024 * 1024;
 
