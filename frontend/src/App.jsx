@@ -186,7 +186,7 @@ export default function App() {
             DuckDB streaming conversion
           </p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-normal text-white sm:text-6xl">
-            Parquet &rarr; CSV Converter
+            Betty MaeParquet &rarr; CSV Converter
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
             Upload a Parquet file and convert it to CSV from your browser. Built for very large
