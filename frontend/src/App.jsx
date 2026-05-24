@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
-const FIVE_GB = 5 * 1024 * 1024 * 1024;
-const TEN_GB = 10 * 1024 * 1024 * 1024;
+const FIVE_GB = 10 * 1024 * 1024 * 1024;
+const TEN_GB = 20 * 1024 * 1024 * 1024;
 
 const FILTER_OPERATORS = [
   { value: 'equals', label: 'Equals' },
@@ -113,7 +113,7 @@ export default function App() {
     if (file.size > TEN_GB) {
       setSelectedFile(null);
       setStatus('Choose a Parquet file to begin.');
-      setError('This file is larger than 10GB. Please choose a smaller Parquet file.');
+      setError('This file is larger than 20GB. Please choose a smaller Parquet file.');
       return;
     }
 
@@ -121,7 +121,7 @@ export default function App() {
     setStatus('Ready to convert.');
 
     if (file.size > FIVE_GB) {
-      setStatus('Ready to convert. Large files over 5GB may take several minutes.');
+      setStatus('Ready to convert. Large files over 10GB may take several minutes.');
     }
   };
 
@@ -238,7 +238,7 @@ export default function App() {
       setPreviewData(null);
       setFilters([]);
       setSearchStatus('Choose a Parquet or .zst file to begin.');
-      setSearchError('This file is larger than 10GB. Please choose a smaller file.');
+      setSearchError('This file is larger than 20GB. Please choose a smaller file.');
       return;
     }
 
@@ -248,7 +248,7 @@ export default function App() {
     setSearchStatus('Ready to load preview.');
 
     if (file.size > FIVE_GB) {
-      setSearchStatus('Ready to load preview. Large files over 5GB may take several minutes.');
+      setSearchStatus('Ready to load preview. Large files over 10GB may take several minutes.');
     }
   };
 
@@ -471,7 +471,7 @@ export default function App() {
                   {selectedFile ? selectedFile.name : 'Drop your .parquet file here'}
                 </span>
                 <span className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-                  Click to browse or drag a file onto this area. Files up to 10GB are accepted.
+                  Click to browse or drag a file onto this area. Files up to 20GB are accepted.
                 </span>
                 <input
                   ref={fileInputRef}
@@ -520,7 +520,7 @@ export default function App() {
 
                   {selectedFile.size > FIVE_GB && (
                     <div className="rounded-lg border border-amber-400/40 bg-amber-400/10 p-4 text-sm leading-6 text-amber-100">
-                      This file is over 5GB, so upload and conversion may take several minutes.
+                      This file is over 10GB, so upload and conversion may take several minutes.
                     </div>
                   )}
                 </div>
@@ -594,7 +594,7 @@ export default function App() {
                     {searchFile ? searchFile.name : 'Drop your .parquet or .zst file here'}
                   </span>
                   <span className="mt-3 max-w-md text-sm leading-6 text-slate-400">
-                    Click to browse or drag a file onto this area. Files up to 10GB are accepted.
+                    Click to browse or drag a file onto this area. Files up to 20GB are accepted.
                   </span>
                   <input
                     ref={searchFileInputRef}
